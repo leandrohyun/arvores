@@ -18,10 +18,30 @@ precisa ser transportada. Enquanto isso, o transporte público e
 o comercial são gerados de modo manual pois são colocados para 
 suprir as necessidades e demandas da cidade.
 */
-import { Compare, defaultCompare } from '../util';
-import { Node } from './models/node';
+class Node{
+    constructor(key){
+        this.key = key;
+        this.left = undefined;
+        this.right = undefined;
+    }
+    toString(){
+        return `${THIS.KEY}`;
+    }
+}
 
-export default class BinarySearchTree {
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1
+};
+
+function defaultCompare(a,b){
+    if (a==b){
+    return 0;
+}
+return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+class BinarySearchTree {
   constructor(compareFn = defaultCompare) {
     this.compareFn = compareFn;
     this.root = undefined;
@@ -153,3 +173,73 @@ export default class BinarySearchTree {
     return node;
   }
 }
+
+// Insert
+
+const transportePublico = new BinarySearchTree();
+transportePublico.insert(10);
+transportePublico.insert(12);
+transportePublico.insert(6);
+transportePublico.insert(3);
+transportePublico.insert(9);
+transportePublico.insert(14);
+
+const comercial = new BinarySearchTree();
+comercial.insert(23);
+comercial.insert(15);
+comercial.insert(29);
+comercial.insert(31);
+comercial.insert(12);
+comercial.insert(3);
+
+const particular = new BinarySearchTree();
+particular.insert(15);
+particular.insert(17);
+particular.insert(19);
+particular.insert(11);
+particular.insert(20);
+
+const serviços = new BinarySearchTree();
+serviços.insert(20);
+serviços.insert(11);
+serviços.insert(21);
+serviços.insert(27);
+serviços.insert(55);
+serviços.insert(6);
+serviços.insert(2);
+
+console.log(transportePublico);
+console.log(comercial);
+console.log(particular);
+console.log(serviços);
+
+//Search
+
+console.log(serviços.search(27));
+console.log(serviços.search(1));
+
+/* InOrderTraverse
+
+console.log(serviços.inOrderTraverse(20));
+
+// preOrderTraverse
+console.log(comercial.preOrderTraverse(23));
+
+// postOrderTraverse
+console.log(transportePublico.postOrderTraverse(10));
+*/
+
+//Min
+
+console.log(serviços.min());
+
+//Max
+
+console.log(particular.max());
+
+//REMOVE
+
+console.log(transportePublico);
+transportePublico.remove(9);
+console.log(transportePublico);
+
