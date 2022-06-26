@@ -1,3 +1,23 @@
+/*
+No Cities Skylines, como simulador de cidades reais nos permite criar
+estradas para ajudar na locomoção de pessoas e mercadorias.
+
+É possivel encontrar veículos em todos os pontos da cidade, no fluxo 
+vai depender das necessidades e da concentração de habitantes em 
+determinada área.
+
+A “Árvore Binária” será usada para organizar veículos da cidade, já
+que qualquer veículo pode ser acessado e é possível visualizar suas
+informações. Os veículos foram divididos em 4 tipos, sendo eles, 
+Transporte Público, Comercial, Particular e Serviços.
+
+O transporte particular e o comercial normalmente são gerados de 
+modo aleatório no jogo, pois dependem do número de habitantes e 
+da produção de mercadorias e matéria prima gerada na cidade que 
+precisa ser transportada. Enquanto isso, o transporte público e 
+o comercial são gerados de modo manual pois são colocados para 
+suprir as necessidades e demandas da cidade.
+*/
 import { Compare, defaultCompare } from '../util';
 import { Node } from './models/node';
 
